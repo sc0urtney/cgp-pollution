@@ -1,15 +1,9 @@
 # Capital Greenspace Project: Air Pollution
 
 ## Project Overview
+This study will  examine the relationship between greenspace characteristics and NO₂ concentrations in Edinburgh, with the aim of informing targeted greening policies in socially deprived communities. Our guiding research question is:  
 
-
-## Team Members
-* Haoxuan Zhao
-* Wirunyupa Rattanasakuldilok
-* Katherine Hamilton
-* Sarah Courtney
-* Nazrin Garibova
-* George Young
+How do greenspace characteristics influence NO₂ concentrations at monitoring sites across Edinburgh when controlling for traffic intensity?  
 
 
 ## Data Sources
@@ -24,3 +18,16 @@ Air Pollution
 Road
 * OS Open Roads
 * Department for Transportation road traffic statistics
+
+Geospatial data
+* Edinburgh boundary
+* LEZ zones?
+
+
+## Team Members
+* Haoxuan Zhao
+* Wirunyupa Rattanasakuldilok
+* Katherine Hamilton
+* Sarah Courtney
+* Nazrin Garibova
+* George Young
