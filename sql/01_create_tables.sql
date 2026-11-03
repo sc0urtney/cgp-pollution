@@ -1,16 +1,16 @@
 
--- Edinburgh Greenspace and Air Pollution Project
+-- Capital Greenspace Project: Air Pollution
 -- 01_create_tables.sql
 -- Create tables in Oracle
 
-CREATE TABLE council_trees (
+CREATE TABLE cgp_council_trees (
     X NUMBER,
     Y NUMBER,
     OBJECTID NUMBER,
     PrimaryKey VARCHAR2(100) PRIMARY KEY,
     LocationOrTagNo VARCHAR2(255),
     Ward VARCHAR2(100),
-    Site VARCHAR2(255),
+    Site VARCHAR2(255), 
     LatinName VARCHAR2(255),
     CommonName VARCHAR2(255),
     Owner VARCHAR2(255),
@@ -23,7 +23,7 @@ CREATE TABLE council_trees (
     Northing NUMBER
 );
 
-CREATE TABLE os_green (
+CREATE TABLE cgp_os_green (
     id VARCHAR2(255),
     function VARCHAR2(255),
     distName1 VARCHAR2(255),
@@ -33,7 +33,7 @@ CREATE TABLE os_green (
     geometry SDO_GEOMETRY
 );
 
-CREATE TABLE traffic (
+CREATE TABLE cgp_traffic (
     count_point_id NUMBER,
     year NUMBER,
     region_id NUMBER,
@@ -67,7 +67,7 @@ CREATE TABLE traffic (
     all_motor_vehicles NUMBER
 );
 
-CREATE TABLE os_roads (
+CREATE TABLE cgp_os_roads (
     fictitious VARCHAR2(255),
     identifier VARCHAR2(255),
     class VARCHAR2(255),
