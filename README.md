@@ -6,6 +6,19 @@ This study will  examine the relationship between greenspace characteristics and
 How do greenspace characteristics influence NO₂ concentrations at monitoring sites across Edinburgh when controlling for traffic intensity?  
 
 
+ ## Folder Structure
+project/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── scripts/
+│   ├── python/
+│   └── sql/
+├── outputs/
+│   ├── figures/
+│   └── maps/
+├── README.md
+
 ## Data Sources
 Greenspace
 * Satellite imagery
