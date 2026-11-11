@@ -7,6 +7,7 @@ How do greenspace characteristics influence NO₂ concentrations at monitoring s
 
 
  ## Folder Structure
+ ```text
 project/
 ├── data/
 │   ├── raw/
@@ -18,6 +19,7 @@ project/
 │   ├── figures/
 │   └── maps/
 ├── README.md
+```
 
 ## Data Sources
 Greenspace
