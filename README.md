@@ -18,6 +18,9 @@ project/
 ├── outputs/
 │   ├── figures/
 │   └── maps/
+├── the-website
+    ├── index.html
+    └── 
 ├── README.md
 ```
 
