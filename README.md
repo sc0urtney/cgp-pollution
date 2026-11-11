@@ -39,7 +39,6 @@ Road
 
 Geospatial data
 * Edinburgh boundary
-* LEZ zones?
 
 
 ## Team Members
