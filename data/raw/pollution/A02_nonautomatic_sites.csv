@@ -1,0 +1,128 @@
+site_id,site_name,site_type,easting,northing,pollutants_monitored,aqma_status,distance_to_exposure_m,distance_to_kerb_m,colocated_continuous_analyser,tube_height_m
+13a,Deanhaugh Street,Roadside,324533,674655,NO2,No,0.0,2.0,No,2.0
+16,Glasgow Road 68/adj,Roadside,313028,672633,NO2,Yes - Glasgow Road,4.4,1.8,No,2.0
+15a,Glasgow Road Facade/9,Roadside,312711,672674,NO2,Yes - Glasgow Road,0.0,7.5,No,2.0
+"58i, 58ii",Glasgow Rd Newbridge,Roadside,312693,672670,NO2,Yes - Glasgow Road,5.2,2.8,No,2.0
+15,Glasgow Rd Newbridge,Roadside,312664,672672,NO2,Yes - Glasgow Road,3.8,4.0,No,2.0
+41,Hillview Terrace,Urban Background,320081,673232,NO2,No,,1.0,No,2.0
+"55i, 55ii",Inverleith Row/Ferry Rd,Roadside,324638,675993,NO2,No,0.0,4.7,No,2.0
+64,Queensferry Road 550,Roadside,318698,674955,NO2,No,9.2,1.5,No,2.0
+64b,Queensferry Road 550F,Roadside,318701,674964,NO2,No,0.0,11.0,No,2.0
+69J,Queensferry Road 554,Roadside,318682,674957,NO2,No,8.6,1.4,No,2.0
+69I,Queensferry Rd/Lyle Ct,Roadside,318616,674968,NO2,No,7.5,2.0,No,2.0
+40,Queensferry Rd/Hillhouse,Roadside,322144,674497,NO2,No,0.0,2.0,No,2.0
+22b,Roseburn Street PS,Roadside,322891,672958,NO2,No,0.0,2.0,No,2.0
+23,Roseburn Terrace,Kerbside,323007,673198,NO2,Yes - City Centre,2.3,3.0,No,2.0
+22a,Roseburn Terrace (W),Kerbside,322984,673189,NO2,Yes - City Centre,1.7,2.3,No,2.0
+22,Roseburn Terrace No21,Roadside,323008,673182,NO2,Yes - City Centre,0.0,1.8,No,2.0
+1d,St John's Road 131,Roadside,320096,672907,NO2,Yes - St John's Road,0.0,2.1,No,2.0
+1b,St John's Road IR,Roadside,320136,672914,NO2,Yes - St John's Road,0.0,2.0,No,2.0
+39,St John's/Victor Park Terr,Roadside,319677,672991,NO2,Yes - St John's Road,4.2,4.8,No,2.0
+76b,Angle Park Terrace 74,Roadside,323527,672285,NO2,Yes - City Centre,0.0,2.1,No,2.0
+78a,14 Appin Street,Other,322783,671530,NO2,No,0.0,65.0,No,2.0
+80e,Balgreen Rd/Library,Roadside,322110,672268,NO2,No,0.0,2.0,No,2.0
+4a,Calder Road,Roadside,318894,670493,NO2,No,5.0,12.0,No,2.0
+145,1 Corstorphine High St,Roadside,319990,672707,NO2,No,0.0,1.4,No,2.0
+145a,Corstorphine P. School,Roadside,319834,672678,NO2,No,0.0,2.7,No,2.0
+79d,Dundee St/Yeaman Pl,Roadside,323926,672550,NO2,Yes - City Centre,0.0,2.3,No,2.0
+79,Fountainbridge/Tollcross,Roadside,324682,672939,NO2,No,0.0,3.3,No,2.0
+79B,Fountainbridge 158,Roadside,324451,672864,NO2,No,0.0,2.0,No,2.0
+80,Gorgie Road - Delhaigh,Roadside,321967,671666,NO2,Yes - City Centre,0.0,2.6,No,2.0
+80f,Gorgie Road No160,Roadside,323141,672345,NO2,Yes - City Centre,0.0,3.2,No,2.0
+5,Gorgie Rd/Murieston Rd,Kerbside,323484,672478,NO2,Yes - City Centre,4.9,0.3,No,2.0
+11,Lanark Road 610,Roadside,319527,668420,NO2,No,3.7,1.5,No,2.0
+77b,Slateford Road 93/95,Roadside,322999,671876,NO2,Yes - City Centre,0.0,2.6,No,2.0
+23i,Abbey Mount No5,Roadside,326928,674301,NO2,No,0.0,2.0,No,2.0
+29a,Bernard Street,Roadside,327137,676529,NO2,Yes - Great Junction Street,0.0,2.1,No,2.0
+"29ci, 29cii",Bernard Street/PS,Roadside,327135,676515,NO2,Yes - Great Junction Street,0.0,2.1,No,2.0
+29,Bernard Street,Roadside,327148,676507,NO2,Yes - Great Junction Street,0.0,2.2,No,2.0
+119,Bonnington Rd/GJ St,Roadside,326723,676136,NO2,No,0.0,1.4,No,2.0
+9d,Commercial Street,Roadside,326477,676759,NO2,Yes - Great Junction Street,0.0,2.6,No,2.0
+9,Commercial Street 88,Roadside,326879,676626,NO2,Yes - Great Junction Street,0.0,2.6,No,2.0
+9a,Commercial /Portland Pl,Roadside,326430,676754,NO2,Yes - Great Junction Street,3.9,1.5,No,2.0
+30f,Duke Street,Roadside,327106,675816,NO2,No,0.0,2.2,No,2.0
+25c,Easter Road 105/109,Roadside,326958,674770,NO2,Yes - City Centre,0.0,3.3,No,2.0
+20a,East London Street,Roadside,325956,674725,NO2,No,0.0,8.0,No,2.0
+25,Easter Road/CH shop,Roadside,326934,674503,NO2,Yes - City Centre,0.0,2.3,No,2.0
+25b,Easter Rd/Rossie Place,Roadside,326950,674624,NO2,Yes - City Centre,0.0,3.3,No,2.0
+53,Ferry Road/ 6 Bowhill Ter,Roadside,324726,676004,NO2,No,1.6,4.6,No,2.0
+45b,Ferry Road/1 Madeira St,Roadside,326359,676420,NO2,No,0.0,8.6,No,2.0
+45d,Ferry Road/N.Junction St,Roadside,326503,676436,NO2,Yes- Great Junction Street,0.0,3.1,No,2.0
+30b,Great Junction Street 137,Roadside,326740,676138,NO2,Yes - Great Junction Street,0.0,2.9,No,2.0
+30c,Great Junction Street 14,Roadside,326925,675949,NO2,Yes - Great Junction Street,0.0,2.8,No,2.0
+30e,Great Junction/ Pirrie St,Roadside,326845,676015,NO2,Yes - Great Junction Street,0.0,2.7,No,2.0
+30,Great Junction Street/FV,Roadside,326884,675997,NO2,Yes - Great Junction Street,0.0,2.8,No,2.0
+20,Leith Walk/McDonald Rd,Roadside,326370,674881,NO2,Yes - City Centre,6.5,1.0,No,2.0
+67,London Road/Earlston Pl,Roadside,327190,674433,NO2,Yes - City Centre,0.0,2.7,No,2.0
+81,London Rd/East Norton P,Roadside,326980,674446,NO2,Yes - City Centre,0.0,2.5,No,2.0
+116,London Rd/Jocks Lodge,Roadside,328245,674166,NO2,Yes - City Centre,0.0,2.3,No,2.0
+46,London Rd/Easter Road,Roadside,326944,674472,NO2,Yes - City Centre,0.0,5.6,No,2.0
+70,London Rd/Wolseley Terr,Roadside,328337,674129,NO2,Yes - City Centre,0.0,4.6,No,2.0
+32,Niddrie Mains Road 28,Kerbside,328889,671649,NO2,No,4.7,2.6,No,2.0
+71,Portobello High Street,Roadside,330533,673850,NO2,No,0.0,3.0,No,2.0
+30X,Rodney Street 31,Roadside,325443,674969,NO2,No,0.0,2.4,No,2.0
+51c,Salamander St/Baltic St,Roadside,327476,676418,NO2,No,0.0,2.3,No,2.0
+90F,Southfield Place,Roadside,330123,673554,NO2,No,0.0,5.0,No,2.0
+10B,Bank Street,Roadside,325598,673616,NO2,No,0.0,2.7,No,2.0
+98,Bernard Terrace,Roadside,326383,672622,NO2,No,1.7,3.3,No,2.0
+44,Broughton Street,Roadside,325918,674430,NO2,No,0.0,3.4,No,2.0
+8A,Brougham Street 9,Roadside,324967,672916,NO2,No,0.0,3.7,No,2.0
+6a,Bruntsfield Place 210,Roadside,324495,672035,NO2,No,0.0,2.8,No,2.0
+48G,Cannongate,Roadside,326173,673700,NO2,No,0.0,2.6,No,2.0
+48h,Canongate 206,Roadside,326271,673722,NO2,No,0.0,2.8,No,2.0
+94,Chester Street 29,Roadside,324071,673608,NO2,No,0.0,6.9,No,2.0
+138,Clerk Street 15,Roadside,326229,672789,NO2,No,0.0,4.4,No,2.0
+151,Comiston Road No.116,Roadside,324367,670473,NO2,No,0.0,2.7,No,2.0
+48f,Cowgate/St Mary's St,Roadside,326198,673587,NO2,No,0.0,2.6,No,2.0
+48a,Cowgate/Blair Street,Roadside,325929,673490,NO2,Yes - City Centre,0.0,3.2,No,2.0
+48e,Cowgatehead 2,Roadside,325537,673405,NO2,Yes - City Centre,0.0,1.9,No,2.0
+123,Dalkeith Road 16/PS,Roadside,326629,672524,NO2,No,0.0,2.2,No,2.0
+93,Drumsheugh Gardens 20,Roadside,324326,673815,NO2,No,0.0,8.9,No,2.0
+128,Dundas Street 9,Roadside,325253,674362,NO2,No,7.4,2.2,No,2.0
+8C,Earl Grey Street 22,Roadside,324864,673008,NO2,Yes - City Centre,0.0,3.4,No,2.0
+124,East Preston/Dalkeith Rd,Roadside,326645,672481,NO2,No,0.0,2.1,No,2.0
+126,East Preston Street 32,Roadside,326588,672461,NO2,No,0.0,6.4,No,2.0
+74f,George Street 112,Roadside,324880,673891,NO2,Yes - City Centre,0.0,6.8,No,2.0
+"37ai, 37aii",Grassmarket 41,Roadside,325401,673340,NO2,Yes - City Centre,0.0,3.4,No,2.0
+37b,Grassmarket 75,Roadside,325471,673369,NO2,Yes - City Centre,0.0,5.0,No,2.0
+37c,Grassmarket/Thomsons Ct,Urban Background,325397,673377,NO2,No,0.0,22.8,No,2.0
+75e,Gt Stuart Street 9,Roadside,324476,673967,NO2,No,0.0,9.4,No,2.0
+HT1,Haymarket Terrace (N),Roadside,323985,673219,NO2,Yes - City Centre,0.0,3.7,No,2.0
+HT2,Haymarket Terrace (S),Kerbside,323787,673212,NO2,Yes - City Centre,1.8,0.5,No,2.0
+10,Home Street/Tollcross,Roadside,324904,672906,NO2,No,0.0,2.0,No,2.0
+140,Hope Park Terr/Clerk St,Roadside,326323,672596,NO2,Yes-City Centre,3.5,1.3,No,2.0
+34,India Street,Urban Background,324790,674341,NO2,No,,2.5,No,2.0
+8B,Lauriston Place,Roadside,324989,673016,NO2,No,0.0,4.9,No,2.0
+74g,Leith Street,Roadside,325897,674051,NO2,Yes - City Centre,0.0,3.7,No,2.0
+62A,Lothian Road 45,Roadside,324777,673425,NO2,Yes - City Centre,0.0,4.1,No,2.0
+62B,Lothian Road 139,Roadside,324827,673138,NO2,No,3.2,3.5,No,2.0
+62X,Lothian Road/Rutland St,Roadside,324711,673635,NO2,Yes - City Centre,0.0,4.8,No,2.0
+38,Melville Drive,Roadside,325141,672733,NO2,No,10.0,2.8,No,2.0
+42,Midmar Drive,Urban Background,325105,670511,NO2,No,,1.4,No,2.0
+79E,Morrison Crescent,Roadside,324170,672919,NO2,No,0.0,15.0,No,2.0
+62C,Morrison Street 91,Roadside,324541,673183,NO2,Yes - City Centre,0.0,2.4,No,2.0
+49,Morrison Street,Roadside,324186,673248,NO2,Yes - City Centre,0.5,6.6,No,2.0
+135b,Nicholson Street 59-61,Roadside,326099,673140,NO2,Yes – City Centre,0.0,2.8,No,2.0
+95,Palmerston/Lansdowne,Kerbside,324105,673457,NO2,No,5.0,0.8,No,2.0
+96,Palmerston Place 7,Roadside,324190,673380,NO2,No,0.0,6.3,No,2.0
+27,North Bridge South,Roadside,325944,673670,NO2,Yes - City Centre,0.0,3.5,No,2.0
+47,Princes Street (EB),Roadside,325049,673791,NO2,Yes - City Centre,6.5,9.0,No,2.0
+24,Princes Street/Mound,Kerbside,325397,673869,NO2,Yes - City Centre,10.2,1.0,No,2.0
+33,Queen St/North David St,Roadside,325467,674229,NO2,Yes - City Centre,0.0,6.5,No,2.0
+144,South Bridge 59,Roadside,326020,673370,NO2,Yes- City Centre,0.0,2.3,No,2.0
+141,South Clerk Street 84,Roadside,326383,672472,NO2,Yes-City Centre,0.0,2.6,No,2.0
+75d,St Colme Street/4,Roadside,324646,674025,NO2,No,0.0,6.2,No,2.0
+28e,St Leonards Street 145a,Roadside,326559,672610,NO2,No,0.0,3.4,No,2.0
+3b,Torphichen Place 1,Roadside,324277,673309,NO2,Yes - City Centre,0.0,4.8,No,2.0
+3,Torphichen Place,Roadside,324258,673295,NO2,Yes - City Centre,0.0,2.3,No,2.0
+2,W.Maitland/Palmerston,Kerbside,324193,673346,NO2,No,5.2,0.5,No,2.0
+28d,West Port 42,Roadside,325203,673250,NO2,Yes - City Centre,0.0,2.7,No,2.0
+28b,West Port 62,Roadside,325166,673242,NO2,Yes - City Centre,0.0,1.4,No,2.0
+91,West Preston Street 40,Roadside,326309,672397,NO2,No,0.0,4.0,No,2.0
+36,York Place,Roadside,325828,674362,NO2,No,2.7,5.5,No,2.0
+"CL1, CL2, CL3",Queensferry Road,Roadside,318736,674930,NO2,No,6.5,1.7,Yes,2.0
+"CL4, CL5, CL6",Gorgie Road,Roadside,323121,672314,NO2,Yes - City Centre,0.0,6.0,Yes,2.4
+"CL7, CL8, CL9",Salamander Street,Roadside,327616,676343,NO2,No,0.0,2.1,Yes,2.4
+"CL13, CL14, CL15",St Johns Road,Kerbside,320101,672907,NO2,Yes - St John's Road,0.0,0.5,Yes,1.8
+"CL16, CL17, CL18",Nicolson Street,Roadside,326151,673041,NO2,Yes - City Centre,2.2,2.9,Yes,1.8
+"CL19, CL20, CL21",Drumsheugh,Roadside,324407,673843,NO2,No,0.0,1.0,Yes,2.0

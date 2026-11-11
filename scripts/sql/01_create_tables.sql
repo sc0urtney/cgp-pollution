@@ -53,16 +53,25 @@ CREATE TABLE cgp_traffic (
     all_motor_vehicles NUMBER
 );
 
-CREATE TABLE cgp_os_roads (
+CREATE TABLE cgp_traffic_roads (
     identifier VARCHAR2(255),
     class VARCHAR2(255),
     roadNumber VARCHAR2(255),
     name1 VARCHAR2(255),
     length NUMBER,
-    function VARCHAR2(255),
+    startNode ,
+    endNode
     geometry_wkt clob
+    count_id VARCHAR(255),
+    aadf_21 NUMBER,
+    aadf_22 NUMBER,
+    aadf_23 NUMBER,
+    aadf_24 NUMBER,
+    aadf_25 NUMBER,
+    assignment_distance NUMBER,
+    snap_distance NUMBER,
+    method  VARCHAR2(255)
 );
-
 
 -- AIR POLLUTION TABLES (A2, A4, A6, A7, A8, A9)
 
@@ -94,6 +103,7 @@ CREATE TABLE cgp_pollution_annual_no2 (
     year_2024 NUMBER
 );
 
+'''
 CREATE TABLE cgp_pollution_no2_citycentre (
     site_id VARCHAR2(50),
     year_2008 NUMBER,
@@ -176,3 +186,4 @@ CREATE TABLE cgp_pollution_stjohns_rd (
     year_2023 NUMBER,
     year_2024 NUMBER
 );
+'''
