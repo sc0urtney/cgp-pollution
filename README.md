@@ -41,7 +41,7 @@ Geospatial data
 * Edinburgh boundary
 
 ##
-Website: https://www.geos.ed.ac.uk/~s2975916/cgp/the-website/index.html
+Website: https://www.geos.ed.ac.uk/~s2975916/cgp-website/index.html
 
 ## Team Members
 * Haoxuan Zhao
