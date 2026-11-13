@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GeoExplorer Dashboard</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>GeoExplorer</h1>
+        <p>Interactive Geospatial Dashboard</p>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <h2>Explore the Data</h2>
+            <p>Explore geographic patterns using interactive maps.</p>
+
+            <h3>Filters</h3>
+
+            <label for="category">Category</label>
+            <select id="category">
+                <option value="all">All categories</option>
+            </select>
+ 
+            <h3>Statistics</h3>
+            <div id="stats">
+                <p>Data will appear here.</p>
+            </div>
+        </aside>
+
+        <section class="map-container">
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
