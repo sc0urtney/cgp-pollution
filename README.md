@@ -18,6 +18,9 @@ project/
 ├── outputs/
 │   ├── figures/
 │   └── maps/
+├── the-website
+    ├── index.html
+    └── 
 ├── README.md
 ```
 
@@ -36,8 +39,9 @@ Road
 
 Geospatial data
 * Edinburgh boundary
-* LEZ zones?
 
+##
+Website: https://www.geos.ed.ac.uk/~s2975916/cgp-website/index.html
 
 ## Team Members
 * Haoxuan Zhao
