@@ -16,10 +16,10 @@ const map = L.map('map', {
     touchZoom: false
 }).setView([55.9533, -3.1883], 11);
 
-// A muted basemap so our data stands out
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
+// Basemap: standard OpenStreetMap tiles (no API key needed).
+// styles.css softens the colours so our data stands out.
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19
 }).addTo(map);
 
