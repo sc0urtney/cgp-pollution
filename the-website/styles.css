@@ -87,6 +87,11 @@ body {
     background: #dfe5e1;
 }
 
+/* Soften the basemap colours so our data layers stand out */
+.leaflet-tile-pane {
+    filter: grayscale(0.65) contrast(0.92) brightness(1.06);
+}
+
 /* ---------- Story ---------- */
 
 #story {
