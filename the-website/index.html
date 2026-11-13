@@ -1,15 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GeoExplorer Dashboard</title>
+    <title>Does greenspace clean Edinburgh's air? | Capital Greenspace Project</title>
+
+    <!-- Fonts (fall back to Georgia / Arial if they fail to load) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Public+Sans:wght@400;600&display=swap">
 
     <!-- Leaflet CSS -->
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
     <!-- Our CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -17,33 +21,118 @@
 
 <body>
 
-    <header>
-        <h1>GeoExplorer</h1>
-        <p>Interactive Geospatial Dashboard</p>
+    <header class="topbar">
+        <span class="brand">Capital Greenspace Project</span>
+        <button id="skip" class="link-btn" type="button">Skip to the map</button>
     </header>
+    <div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
 
-    <main>
-        <aside class="sidebar">
-            <h2>Explore the Data</h2>
-            <p>Explore geographic patterns using interactive maps.</p>
+    <!-- The map sits fixed behind everything -->
+    <div id="map" role="region" aria-label="Map of Edinburgh"></div>
 
-            <h3>Filters</h3>
+    <!--
+      THE STORY
+      Each <section class="step"> is one scroll stop. The map reacts to its data- attributes:
+        data-lat, data-lng : where the map flies to
+        data-zoom          : how close it zooms (11 = city, 15 = neighbourhood, 17 = street)
+        data-marker        : "true" shows a highlight ring at that spot
+        data-layers        : space-separated layer names to show (we'll add layers later)
+      Coordinates below are APPROXIMATE PLACEHOLDERS. Replace with your real site coordinates.
+      Anything inside <p class="todo"> is a reminder to replace with your real findings.
+    -->
+    <div id="story">
 
-            <label for="category">Category</label>
-            <select id="category">
-                <option value="all">All categories</option>
-            </select>
- 
-            <h3>Statistics</h3>
-            <div id="stats">
-                <p>Data will appear here.</p>
+        <section class="step" data-lat="55.9533" data-lng="-3.1883" data-zoom="11" data-marker="false" data-layers="">
+            <div class="card card-hero">
+                <h1>Does greenspace clean Edinburgh's air?</h1>
+                <p>Nitrogen dioxide (NO&#8322;) is a traffic pollutant linked to respiratory illness. This story follows one question: how do greenspace characteristics influence NO&#8322; at monitoring sites across Edinburgh, once traffic is accounted for?</p>
+                <p class="hint">Scroll to begin.</p>
             </div>
-        </aside>
-
-        <section class="map-container">
-            <div id="map"></div>
         </section>
-    </main>
+
+        <section class="step" data-lat="55.9533" data-lng="-3.1883" data-zoom="12" data-marker="false" data-layers="no2">
+            <div class="card">
+                <h2>Where NO&#8322; is measured</h2>
+                <p>NO&#8322; is monitored at sites across the city. Each site gives us an annual average, so we can compare one place with another.</p>
+                <p class="todo">Replace: number of sites and the year(s) of data you use.</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9425" data-lng="-3.2810" data-zoom="15" data-marker="true" data-layers="no2">
+            <div class="card">
+                <h2>A busy corridor: St John's Road</h2>
+                <p>Some sites record far more NO&#8322; than others. This is one of the places where it builds up.</p>
+                <p class="todo">Replace: your highest-NO&#8322; site, its measured value, and how it compares with the legal limit.</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9650" data-lng="-3.2530" data-zoom="14" data-marker="true" data-layers="no2 traffic">
+            <div class="card">
+                <h2>Traffic is the obvious suspect</h2>
+                <p>Busy roads produce NO&#8322;, so any fair test of greenspace has to account for traffic first. Otherwise we would confuse what roads do with what greenery does.</p>
+                <p class="todo">Replace: how you measure traffic intensity (e.g. annual average daily flow) and over what distance.</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9650" data-lng="-3.2095" data-zoom="15" data-marker="true" data-layers="no2 greenspace">
+            <div class="card">
+                <h2>Then, the green around each site</h2>
+                <p>Around every monitoring site we measure the greenspace nearby: how much there is, and what kind.</p>
+                <p class="todo">Replace: buffer distance(s) and the greenspace measures you calculate (area, type, tree cover).</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9440" data-lng="-3.1840" data-zoom="16" data-marker="true" data-layers="no2 greenspace">
+            <div class="card">
+                <h2>Two sites, one question</h2>
+                <p>Compare a site with plenty of green nearby with one that has little. Does the air differ once traffic is similar?</p>
+                <p class="todo">Replace: a real pair of sites from your data and what the contrast shows.</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9380" data-lng="-3.2420" data-zoom="13" data-marker="false" data-layers="no2 deprivation">
+            <div class="card">
+                <h2>Who would benefit from more green?</h2>
+                <p>Our aim is to inform greening policy in socially deprived communities. So we place the results alongside area deprivation to see where new greenspace could help most.</p>
+                <p class="todo">Replace: deprivation dataset (e.g. SIMD) and what you found.</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9533" data-lng="-3.1883" data-zoom="12" data-marker="false" data-layers="no2">
+            <div class="card">
+                <h2>What we found</h2>
+                <p class="todo">Replace: your headline result in one plain sentence, with the key number and a small chart.</p>
+            </div>
+        </section>
+
+        <section class="step" data-lat="55.9533" data-lng="-3.1883" data-zoom="12" data-marker="false" data-layers="no2 traffic greenspace deprivation">
+            <div class="card">
+                <h2>Now explore it yourself</h2>
+                <p>Pan, zoom and switch layers to look at any part of the city.</p>
+                <button id="explore" class="btn" type="button">Open the map</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Free-explore panel (shown after "Open the map") -->
+    <aside id="explore-panel" hidden>
+        <button id="back" class="btn btn-quiet" type="button">Back to the story</button>
+
+        <h2>Explore the data</h2>
+        <p>Explore geographic patterns using interactive maps.</p>
+
+        <h3>Filters</h3>
+        <label for="category">Category</label>
+        <select id="category">
+            <option value="all">All categories</option>
+        </select>
+
+        <h3>Statistics</h3>
+        <div id="stats">
+            <p>Data will appear here.</p>
+        </div>
+    </aside>
 
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
