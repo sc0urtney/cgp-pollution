@@ -1,83 +1,278 @@
+:root {
+    --forest: #183c38;
+    --leaf: #3f7d5a;
+    --haze: #b8651b;
+    --paper: #f7f8f6;
+    --ink: #253333;
+    --muted: #5b6868;
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'Public Sans', Arial, sans-serif;
+}
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    color: #253333;
-    background: #f7f8f6;
-}
-
-header {
-    background: #183c38;
-    color: white;
-    padding: 20px 30px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 26px;
-}
-
-header p {
-    margin: 5px 0 0;
-    font-size: 14px;
-}
-
-main {
-    display: flex;
-    height: calc(100vh - 90px);
-}
-
-.sidebar {
-    width: 320px;
-    flex-shrink: 0;
-    padding: 25px;
-    background: #ffffff;
-    overflow-y: auto;
-    border-right: 1px solid #ddd;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-}
-
-.sidebar p {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
     line-height: 1.6;
-    color: #666;
+}
+
+/* ---------- Top bar and progress ---------- */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(24, 60, 56, 0.95);
+    color: white;
+    z-index: 1100;
+}
+
+.brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.link-btn {
+    font: inherit;
+    font-size: 0.9rem;
+    color: white;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.link-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.progress {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 1100;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--haze);
+}
+
+/* ---------- Map (fixed behind the story) ---------- */
+
+#map {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: #dfe5e1;
+}
+
+/* ---------- Story ---------- */
+
+#story {
+    position: relative;
+    z-index: 500;
+    pointer-events: none; /* lets you interact with the map once exploring */
+}
+
+.step {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.card {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 420px;
+    padding: 24px 26px;
+    background: white;
+    border-left: 5px solid var(--leaf);
+    border-radius: 6px;
+    box-shadow: 0 6px 24px rgba(24, 60, 56, 0.18);
+    opacity: 0.88;
+    transition: opacity 0.4s;
+}
+
+.step.is-active .card {
+    opacity: 1;
+}
+
+.card h1,
+.card h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    color: var(--forest);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+}
+
+.card p {
+    margin: 0 0 12px;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+.card-hero {
+    max-width: 480px;
+    border-left-color: var(--haze);
+}
+
+.card-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+}
+
+.hint {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Placeholder reminders: easy to spot, easy to delete */
+.todo {
+    padding: 8px 10px;
+    border: 1px dashed var(--haze);
+    background: #fdf3e8;
+    font-size: 0.9rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    font: inherit;
+    font-weight: 600;
+    color: white;
+    background: var(--forest);
+    border: none;
+    border-radius: 4px;
+    padding: 12px 18px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #245650;
+}
+
+.btn-quiet {
+    background: none;
+    color: var(--forest);
+    border: 1px solid var(--forest);
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.btn-quiet:hover {
+    background: #eef3f0;
+}
+
+.btn:focus-visible,
+.link-btn:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--haze);
+    outline-offset: 2px;
+}
+
+/* ---------- Explore mode ---------- */
+
+#explore-panel {
+    position: fixed;
+    top: 72px;
+    left: 20px;
+    width: 300px;
+    max-height: calc(100vh - 92px);
+    overflow-y: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 6px 24px rgba(24, 60, 56, 0.18);
+    z-index: 1050;
+}
+
+#explore-panel[hidden] {
+    display: none;
+}
+
+#explore-panel h2 {
+    font-family: var(--serif);
+    margin-top: 0;
+    color: var(--forest);
+}
+
+#explore-panel p {
+    color: var(--muted);
 }
 
 select {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font: inherit;
 }
 
-.map-container {
-    flex: 1;
-    min-width: 0;
+body.exploring {
+    overflow: hidden;
 }
 
-#map {
-    height: 100%;
-    width: 100%;
+body.exploring #story {
+    display: none;
 }
 
-@media (max-width: 650px) {
-    main {
-        flex-direction: column;
-        height: auto;
+/* ---------- Small screens ---------- */
+
+@media (max-width: 800px) {
+    .step {
+        align-items: flex-end;
+        padding: 0 12px 6vh;
     }
 
-    .sidebar {
-        width: 100%;
+    .card {
+        max-width: 100%;
     }
 
-    #map {
-        height: 65vh;
+    #explore-panel {
+        top: auto;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        max-height: 45vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .card {
+        transition: none;
     }
 }
