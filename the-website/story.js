@@ -64,6 +64,8 @@ function showLayers(names) {
 // =====================================================
 
 const steps = Array.from(document.querySelectorAll('.step'));
+// If the visitor's device asks for reduced motion we skip the zoom-out flourish,
+// but the map still follows the scrollbar (the visitor controls the movement).
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Read each step's place from its data- attributes
@@ -103,7 +105,6 @@ function update() {
 
     // Hold still near each card, travel during the middle of the gap
     t = smoothstep(Math.max(0, Math.min(1, (t - 0.2) / 0.6)));
-    if (reduceMotion) t = Math.round(t);
 
     const a = stops[i];
     const b = stops[i + 1];
@@ -115,7 +116,7 @@ function update() {
 
     // On long trips, zoom out a little mid-journey, then back in (a "fly" feel)
     const distance = L.latLng(a.lat, a.lng).distanceTo([b.lat, b.lng]);   // metres
-    const arc = Math.min(1.8, distance / 5000);
+    const arc = reduceMotion ? 0 : Math.min(1.8, distance / 5000);
     zoom -= arc * Math.sin(Math.PI * t);
 
     // Keep the place beside the text card, not underneath it
