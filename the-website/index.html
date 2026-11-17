@@ -4,52 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edinburgh Environmental Dashboard</title>
 
-    <title>GeoExplorer Dashboard</title>
-
-    <!-- Leaflet CSS -->
     <link rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
-    <!-- Our CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>GeoExplorer</h1>
-        <p>Interactive Geospatial Dashboard</p>
-    </header>
+<header>
+    <h2>Edinburgh Environmental Dashboard</h2>
+    <p>Exploring green spaces, traffic, and air quality</p>
+</header>
 
-    <main>
-        <aside class="sidebar">
-            <h2>Explore the Data</h2>
-            <p>Explore geographic patterns using interactive maps.</p>
+<div class="dashboard">
 
-            <h3>Filters</h3>
+    <aside class="sidebar">
+        <h3>Explore the Data</h3>
+        <p>Explore environmental conditions across Edinburgh.</p>
 
-            <label for="category">Category</label>
-            <select id="category">
-                <option value="all">All categories</option>
-            </select>
- 
-            <h3>Statistics</h3>
-            <div id="stats">
-                <p>Data will appear here.</p>
+        <h4>Map Layers</h4>
+        <label>
+            <input type="checkbox" id="greenspaces-toggle" checked>
+            Green Spaces
+        </label>
+
+        <label>
+            <input type="checkbox" id="traffic-toggle" checked>
+            Traffic
+        </label>
+
+        <h4>Summary Statistics</h4>
+        <div class="stats">
+            <div class="stat-card">
+                <small>Green Spaces</small>
+                <h2 id="greenspace-count">—</h2>
             </div>
-        </aside>
 
-        <section class="map-container">
-            <div id="map"></div>
-        </section>
-    </main>
+            <div class="stat-card">
+                <small>Traffic Features</small>
+                <h2 id="traffic-count">—</h2>
+            </div>
+        </div>
 
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <h4>Selected Feature</h4>
+        <div id="feature-info">
+            Click a feature on the map to see its details.
+        </div>
+    </aside>
 
-    <!-- Our JavaScript -->
-    <script src="script.js"></script>
+    <main id="map"></main>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/map.js"></script>
 
 </body>
 </html>

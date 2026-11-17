@@ -1,4 +1,4 @@
-site_id_and_name,easting,northing,site_type,capture_monitoring_period_pct,capture_2024_pct,year_2020,year_2021,year_2022,year_2023,year_2024
+site_id,easting,northing,site_type,capture_monitoring_period_pct,capture_2024_pct,year_2020,year_2021,year_2022,year_2023,year_2024
 13a,324533,674655,Roadside,92.5,92.5,15.4,16.3,15.7,15.6,14.5
 16,313028,672633,Roadside,100.0,100.0,26.7,27.9,27.7,32.0,27.4
 15a,312711,672674,Roadside,100.0,100.0,17.3,21.5,25.3,26.0,19.8

@@ -3,11 +3,11 @@
 -- 01_create_tables.sql
 -- Create tables in Oracle: all tables start with CGP
 
--- To run this file, connect to sqlcl: @sql/01_create_tables.sql
+-- To run this file, connect to sqlcl: @data/sql/01_create_tables.sql
 -- To list all your Oracle tables: SELECT * FROM tab;
 -- To delete tables: DROP TABLE table_name;
 
-CREATE TABLE cgp_council_trees (
+CREATE TABLE cgp_trees (
     X NUMBER,
     Y NUMBER,
     OBJECTID NUMBER,
@@ -24,20 +24,11 @@ CREATE TABLE cgp_council_trees (
     AgeGroup VARCHAR2(255),
     DiameterAtBreastHeight VARCHAR2(255),
     Easting NUMBER,
-    Northing NUMBER
-);
-
-CREATE TABLE cgp_os_green (
-    id VARCHAR2(255),
-    function VARCHAR2(100),
-    geometry_wkt CLOB
-);
+    Northing NUMBER);
 
 
 CREATE TABLE cgp_traffic (
-    count_point_id NUMBER,
-    year NUMBER,
-    local_authority_name VARCHAR2(100),
+    count_point_id VARCHAR(255),
     road_name VARCHAR2(255),
     road_type VARCHAR2(255),
     start_junction_road_name VARCHAR2(255),
@@ -47,36 +38,17 @@ CREATE TABLE cgp_traffic (
     latitude NUMBER,
     longitude NUMBER,
     link_length_km NUMBER,
-    link_length_miles NUMBER,
-    estimation_method VARCHAR2(255),
-    estimation_method_detailed VARCHAR2(255),
-    all_motor_vehicles NUMBER
-);
+    year_2021 NUMBER,
+    year_2022 NUMBER,
+    year_2023 NUMBER,
+    year_2024 NUMBER,
+    year_2025 NUMBER);
 
-CREATE TABLE cgp_traffic_roads (
-    identifier VARCHAR2(255),
-    class VARCHAR2(255),
-    roadNumber VARCHAR2(255),
-    name1 VARCHAR2(255),
-    length NUMBER,
-    startNode ,
-    endNode
-    geometry_wkt clob
-    count_id VARCHAR(255),
-    aadf_21 NUMBER,
-    aadf_22 NUMBER,
-    aadf_23 NUMBER,
-    aadf_24 NUMBER,
-    aadf_25 NUMBER,
-    assignment_distance NUMBER,
-    snap_distance NUMBER,
-    method  VARCHAR2(255)
-);
 
--- AIR POLLUTION TABLES (A2, A4, A6, A7, A8, A9)
+-- AIR POLLUTION TABLES (A2, A4, A6)
 
-CREATE TABLE cgp_pollution_site_details (
-    site_id VARCHAR2(50),
+CREATE TABLE cgp_sensor_sites (
+    site_id VARCHAR2(100),
     site_name VARCHAR2(100),
     site_type VARCHAR2(100),
     easting NUMBER,
@@ -86,10 +58,9 @@ CREATE TABLE cgp_pollution_site_details (
     distance_to_exposure_m NUMBER,
     distance_to_kerb_m NUMBER,
     colocated_continuous_analyser VARCHAR2(255),
-    tube_height_m NUMBER
-);
+    tube_height_m NUMBER);
 
-CREATE TABLE cgp_pollution_annual_no2 (
+CREATE TABLE cgp_no2 (
     site_id_and_name VARCHAR2(255),
     easting NUMBER,
     northing NUMBER,
@@ -100,90 +71,24 @@ CREATE TABLE cgp_pollution_annual_no2 (
     year_2021 NUMBER,
     year_2022 NUMBER,
     year_2023 NUMBER,
-    year_2024 NUMBER
-);
+    year_2024 NUMBER);
 
-'''
-CREATE TABLE cgp_pollution_no2_citycentre (
-    site_id VARCHAR2(50),
-    year_2008 NUMBER,
-    year_2009 NUMBER,
-    year_2010 NUMBER,
-    year_2011 NUMBER,
-    year_2012 NUMBER,
-    year_2013 NUMBER,
-    year_2014 NUMBER,
-    year_2015 NUMBER,
-    year_2016 NUMBER,
-    year_2017 NUMBER,
-    year_2018 NUMBER,
-    year_2019 NUMBER,
+CREATE TABLE cgp_no2_sensors (
+    site_id VARCHAR2(100),
+    site_name VARCHAR2(100),
+    site_type VARCHAR2(100),
+    easting NUMBER,
+    northing NUMBER,
+    pollutants_monitored VARCHAR2(255),
+    aqma_status VARCHAR2(255),
+    distance_to_exposure_m NUMBER,
+    distance_to_kerb_m NUMBER,
+    colocated_continuous_analyser VARCHAR2(255),
+    tube_height_m NUMBER,
+    capture_monitoring_period_pct NUMBER,
+    capture_2024_pct NUMBER,
     year_2020 NUMBER,
     year_2021 NUMBER,
     year_2022 NUMBER,
     year_2023 NUMBER,
-    year_2024 NUMBER
-);
-
-CREATE TABLE cgp_pollution_no2_glasgow_rd (
-    site_id VARCHAR2(50),
-    year_2009 NUMBER,
-    year_2010 NUMBER,
-    year_2011 NUMBER,
-    year_2012 NUMBER,
-    year_2013 NUMBER,
-    year_2014 NUMBER,
-    year_2015 NUMBER,
-    year_2016 NUMBER,
-    year_2017 NUMBER,
-    year_2018 NUMBER,
-    year_2019 NUMBER,
-    year_2020 NUMBER,
-    year_2021 NUMBER,
-    year_2022 NUMBER,
-    year_2023 NUMBER,
-    year_2024 NUMBER
-);
-
-CREATE TABLE cgp_pollution_no2_greatjunc_st (
-    site_id VARCHAR2(50),
-    year_2008 NUMBER,
-    year_2009 NUMBER,
-    year_2010 NUMBER,
-    year_2011 NUMBER,
-    year_2012 NUMBER,
-    year_2013 NUMBER,
-    year_2014 NUMBER,
-    year_2015 NUMBER,
-    year_2016 NUMBER,
-    year_2017 NUMBER,
-    year_2018 NUMBER,
-    year_2019 NUMBER,
-    year_2020 NUMBER,
-    year_2021 NUMBER,
-    year_2022 NUMBER,
-    year_2023 NUMBER,
-    year_2024 NUMBER
-);
-
-CREATE TABLE cgp_pollution_stjohns_rd (
-    site_id VARCHAR2(50),
-    year_2008 NUMBER,
-    year_2009 NUMBER,
-    year_2010 NUMBER,
-    year_2011 NUMBER,
-    year_2012 NUMBER,
-    year_2013 NUMBER,
-    year_2014 NUMBER,
-    year_2015 NUMBER,
-    year_2016 NUMBER,
-    year_2017 NUMBER,
-    year_2018 NUMBER,
-    year_2019 NUMBER,
-    year_2020 NUMBER,
-    year_2021 NUMBER,
-    year_2022 NUMBER,
-    year_2023 NUMBER,
-    year_2024 NUMBER
-);
-'''
+    year_2024 NUMBER);
