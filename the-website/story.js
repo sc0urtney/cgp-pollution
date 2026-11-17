@@ -6,6 +6,7 @@
 
 const map = L.map('map', {
     zoomControl: false,
+    zoomSnap: 0,          // allow in-between zoom levels, needed for smooth scroll-driven zooming
     dragging: false,
     scrollWheelZoom: false,
     doubleClickZoom: false,
@@ -56,44 +57,90 @@ function showLayers(names) {
 
 
 // =====================================================
-// 3. SCROLLYTELLING
-// When a step reaches the middle of the screen, the map flies to it.
+// 3. SCROLLYTELLING (scroll-driven camera)
+// The map is tied directly to the scrollbar: as you scroll from one card
+// to the next, the map glides from the first place to the second.
+// Scroll back and it glides back. Near each card the map "holds" still.
 // =====================================================
 
-const steps = document.querySelectorAll('.step');
+const steps = Array.from(document.querySelectorAll('.step'));
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Move the map so the place sits beside the text card, not underneath it
-function flyToOffset(lat, lng, zoom) {
-    const wide = window.innerWidth > 800;
-    const offsetX = wide ? 220 : 0;    // desktop: push place to the right of the card
-    const offsetY = wide ? 0 : 120;    // mobile: push place into the top half
-    const point = map.project([lat, lng], zoom).add([-offsetX, offsetY]);
-    const target = map.unproject(point, zoom);
+// Read each step's place from its data- attributes
+const stops = steps.map(function (step) {
+    return {
+        lat: parseFloat(step.dataset.lat),
+        lng: parseFloat(step.dataset.lng),
+        zoom: parseFloat(step.dataset.zoom)
+    };
+});
 
-    if (reduceMotion) {
-        map.setView(target, zoom, { animate: false });
-    } else {
-        // Longer trips and bigger zoom changes get a longer, gentler flight
-        const distance = map.getCenter().distanceTo(target);   // metres
-        const zoomChange = Math.abs(map.getZoom() - zoom);
-        const duration = Math.min(3, 1.4 + distance / 6000 + zoomChange * 0.15);
-        map.flyTo(target, zoom, { duration: duration, easeLinearity: 0.2 });
+// Where is the middle of each step on the page? (re-measured on resize)
+let centres = [];
+function measure() {
+    centres = steps.map(function (step) {
+        const box = step.getBoundingClientRect();
+        return window.scrollY + box.top + box.height / 2;
+    });
+}
+
+function smoothstep(x) {
+    return x * x * (3 - 2 * x);
+}
+
+// Draw the map for the current scroll position
+let activeIndex = -1;
+function update() {
+    if (!centres.length) return;
+
+    const ref = window.scrollY + window.innerHeight / 2;   // the line across the middle of the screen
+
+    // Which two steps are we between, and how far along (0 to 1)?
+    let i = 0;
+    while (i < centres.length - 2 && ref > centres[i + 1]) i++;
+    let t = (ref - centres[i]) / (centres[i + 1] - centres[i]);
+    t = Math.max(0, Math.min(1, t));
+
+    // Hold still near each card, travel during the middle of the gap
+    t = smoothstep(Math.max(0, Math.min(1, (t - 0.2) / 0.6)));
+    if (reduceMotion) t = Math.round(t);
+
+    const a = stops[i];
+    const b = stops[i + 1];
+
+    // Blend the place and the zoom
+    const lat = a.lat + (b.lat - a.lat) * t;
+    const lng = a.lng + (b.lng - a.lng) * t;
+    let zoom = a.zoom + (b.zoom - a.zoom) * t;
+
+    // On long trips, zoom out a little mid-journey, then back in (a "fly" feel)
+    const distance = L.latLng(a.lat, a.lng).distanceTo([b.lat, b.lng]);   // metres
+    const arc = Math.min(1.8, distance / 5000);
+    zoom -= arc * Math.sin(Math.PI * t);
+
+    // Keep the place beside the text card, not underneath it
+    const wide = window.innerWidth > 800;
+    const offsetX = wide ? 220 : 0;
+    const offsetY = wide ? 0 : 120;
+    const point = map.project([lat, lng], zoom).add([-offsetX, offsetY]);
+    map.setView(map.unproject(point, zoom), zoom, { animate: false });
+
+    // Switch highlight ring and layers when we pass the halfway point
+    const nearest = t < 0.5 ? i : i + 1;
+    if (nearest !== activeIndex) {
+        activeIndex = nearest;
+        showStep(nearest);
     }
 }
 
-function goToStep(step) {
+function showStep(index) {
+    const step = steps[index];
     steps.forEach(function (s) {
         s.classList.toggle('is-active', s === step);
     });
 
-    const lat = parseFloat(step.dataset.lat);
-    const lng = parseFloat(step.dataset.lng);
-    const zoom = parseFloat(step.dataset.zoom);
-    flyToOffset(lat, lng, zoom);
-
     if (step.dataset.marker === 'true') {
-        highlight.setLatLng([lat, lng]);
+        highlight.setLatLng([stops[index].lat, stops[index].lng]);
         if (!map.hasLayer(highlight)) highlight.addTo(map);
     } else {
         map.removeLayer(highlight);
@@ -102,38 +149,29 @@ function goToStep(step) {
     showLayers((step.dataset.layers || '').split(' ').filter(Boolean));
 }
 
-// Watch for a step crossing the middle line of the screen.
-// The map only starts flying once scrolling pauses for a moment, so fast
-// scrolling doesn't trigger a pile-up of half-finished flights.
-let currentStep = null;
-let flyTimer = null;
-
-const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-
-        const step = entry.target;
-        steps.forEach(function (s) {
-            s.classList.toggle('is-active', s === step);
-        });
-
-        clearTimeout(flyTimer);
-        flyTimer = setTimeout(function () {
-            if (step !== currentStep) {
-                currentStep = step;
-                goToStep(step);
-            }
-        }, 200);
+// Run update() smoothly, at most once per screen refresh
+let ticking = false;
+function requestUpdate() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+        ticking = false;
+        update();
     });
-}, { rootMargin: '-50% 0px -50% 0px' });
+}
 
-steps.forEach(function (step) {
-    observer.observe(step);
+window.addEventListener('scroll', requestUpdate, { passive: true });
+window.addEventListener('resize', function () {
+    measure();
+    requestUpdate();
+});
+window.addEventListener('load', function () {
+    measure();
+    update();
 });
 
-// Position the map for the first step straight away
-currentStep = steps[0];
-goToStep(steps[0]);
+measure();
+update();
 
 
 // =====================================================
