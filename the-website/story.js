@@ -18,7 +18,9 @@ const map = L.map('map', {
 // styles.css softens the colours so our data stands out.
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 19
+    maxZoom: 19,
+    keepBuffer: 6,            // keep more tiles around the view, so less blank map while flying
+    updateWhenZooming: false  // fetch tiles when the zoom settles, not during it
 }).addTo(map);
 
 // The ring that highlights the place a step is talking about
@@ -72,7 +74,11 @@ function flyToOffset(lat, lng, zoom) {
     if (reduceMotion) {
         map.setView(target, zoom, { animate: false });
     } else {
-        map.flyTo(target, zoom, { duration: 1.6 });
+        // Longer trips and bigger zoom changes get a longer, gentler flight
+        const distance = map.getCenter().distanceTo(target);   // metres
+        const zoomChange = Math.abs(map.getZoom() - zoom);
+        const duration = Math.min(3, 1.4 + distance / 6000 + zoomChange * 0.15);
+        map.flyTo(target, zoom, { duration: duration, easeLinearity: 0.2 });
     }
 }
 
@@ -96,10 +102,28 @@ function goToStep(step) {
     showLayers((step.dataset.layers || '').split(' ').filter(Boolean));
 }
 
-// Watch for a step crossing the middle line of the screen
+// Watch for a step crossing the middle line of the screen.
+// The map only starts flying once scrolling pauses for a moment, so fast
+// scrolling doesn't trigger a pile-up of half-finished flights.
+let currentStep = null;
+let flyTimer = null;
+
 const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-        if (entry.isIntersecting) goToStep(entry.target);
+        if (!entry.isIntersecting) return;
+
+        const step = entry.target;
+        steps.forEach(function (s) {
+            s.classList.toggle('is-active', s === step);
+        });
+
+        clearTimeout(flyTimer);
+        flyTimer = setTimeout(function () {
+            if (step !== currentStep) {
+                currentStep = step;
+                goToStep(step);
+            }
+        }, 200);
     });
 }, { rootMargin: '-50% 0px -50% 0px' });
 
@@ -108,6 +132,7 @@ steps.forEach(function (step) {
 });
 
 // Position the map for the first step straight away
+currentStep = steps[0];
 goToStep(steps[0]);
 
 
